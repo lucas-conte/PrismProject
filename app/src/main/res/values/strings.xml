@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PrismProject</string>
+
+    <string name="supernintendo">Super Nintendo</string>
+    <string name="megadrive">Mega Drive</string>
+    <string name="ps1">PS1</string>
 </resources>

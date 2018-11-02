@@ -6,10 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainDashboard">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_dashboard"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_dashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+
+        <android.support.v4.view.PagerTitleStrip
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="top"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+    </android.support.v4.view.ViewPager>
 
 </android.support.constraint.ConstraintLayout>
