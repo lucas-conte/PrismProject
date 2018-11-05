@@ -14,7 +14,7 @@ import com.prism.prismproject.R;
 import com.prism.prismproject.adapter.DashboardListAdapter;
 
 public class FragmentListDashboard extends Fragment{
-    private RecyclerView recyclerView;
+    protected RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -25,13 +25,5 @@ public class FragmentListDashboard extends Fragment{
         recyclerView.setLayoutManager(layoutManager);
 
         return viewGroup;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        DashboardListAdapter adapter = new DashboardListAdapter();
-        recyclerView.setAdapter(adapter);
     }
 }

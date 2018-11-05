@@ -2,6 +2,7 @@ package com.prism.prismproject.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,16 +33,18 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 0;
     }
 
     public class DashboardListViewHolder extends RecyclerView.ViewHolder{
+        public CardView cardView;
         public ImageView gameImage;
         public TextView gameName;
         public TextView consoleName;
 
         public DashboardListViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardView = itemView.findViewById(R.id.cardview_item);
             gameImage = itemView.findViewById(R.id.iv_game);
             gameName = itemView.findViewById(R.id.tv_gamename);
             consoleName = itemView.findViewById(R.id.tv_consolename);

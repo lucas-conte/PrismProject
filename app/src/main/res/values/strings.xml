@@ -2,6 +2,6 @@
     <string name="app_name">PrismProject</string>
 
     <string name="supernintendo">Super Nintendo</string>
-    <string name="megadrive">Mega Drive</string>
-    <string name="ps1">PS1</string>
+    <string name="gameboy">Game Boy Advance</string>
+    <string name="ps1">PlayStation</string>
 </resources>
