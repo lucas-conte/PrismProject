@@ -1,6 +1,7 @@
 package com.prism.prismproject.adapter;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.prism.prismproject.R;
+import com.prism.prismproject.object.SSHConnection;
+
+import java.net.URL;
 
 public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdapter.DashboardListViewHolder>  {
 
@@ -48,6 +52,23 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
             gameImage = itemView.findViewById(R.id.iv_game);
             gameName = itemView.findViewById(R.id.tv_gamename);
             consoleName = itemView.findViewById(R.id.tv_consolename);
+        }
+    }
+
+    public class SendSSHCommands extends AsyncTask<String, Void, String>{
+        SSHConnection sshConnection = new SSHConnection();
+
+        @Override
+        protected String doInBackground(String... strings) {
+            sshConnection.connect();
+            sshConnection.playCommand(strings[0], strings[1]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            sshConnection.disconnect();
         }
     }
 }

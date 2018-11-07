@@ -26,6 +26,9 @@ public class SuperNintendoListAdapter extends DashboardListAdapter{
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, superNintendo.getConsole().getJogos().get(i).getNome() + " clicado", Toast.LENGTH_SHORT).show();
+
+                SendSSHCommands ssh = new SendSSHCommands();
+                ssh.doInBackground("n64", "mario64.z64");
             }
         });
     }
