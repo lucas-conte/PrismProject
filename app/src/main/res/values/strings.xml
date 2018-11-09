@@ -2,6 +2,6 @@
     <string name="app_name">PrismProject</string>
 
     <string name="supernintendo">Super Nintendo</string>
-    <string name="gameboy">Game Boy Advance</string>
+    <string name="nintendo64">Nintendo 64</string>
     <string name="ps1">PlayStation</string>
 </resources>

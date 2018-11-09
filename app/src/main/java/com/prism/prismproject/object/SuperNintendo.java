@@ -1,7 +1,6 @@
 package com.prism.prismproject.object;
 
 import com.prism.prismproject.R;
-import com.prism.prismproject.constant.Constant;
 
 import java.util.ArrayList;
 
@@ -10,11 +9,11 @@ public class SuperNintendo{
 
     public SuperNintendo(){
         ArrayList<Jogo> lista = new ArrayList<>();
-        Jogo jogo = new Jogo("Super Mario World", R.drawable.sn_supermario);
+        Jogo jogo = new Jogo("Super Mario World", R.drawable.snes_supermarioworld);
         lista.add(jogo);
-        jogo = new Jogo("Super Mario Kart", R.drawable.sn_mariokart);
+        jogo = new Jogo("Super Mario Kart", R.drawable.snes_supermariokart);
         lista.add(jogo);
-        jogo = new Jogo("Bomberman", R.drawable.sn_bomberman);
+        jogo = new Jogo("Mighty Morphin Power Rangers", R.drawable.snes_powerrangers);
         lista.add(jogo);
 
         superNintendo = new Console("Super Nintendo", lista);

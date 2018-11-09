@@ -59,8 +59,12 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
     }
 
     public class SendSSHCommands extends AsyncTask<String, Void, String>{
-        SSHConnection sshConnection = new SSHConnection();
+        SSHConnection sshConnection;
         ProgressBar loading;
+
+        public SendSSHCommands(int idConsole){
+            sshConnection = new SSHConnection(idConsole);
+        }
 
         public void setLoading(ProgressBar loading){
             this.loading = loading;
@@ -75,7 +79,7 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         @Override
         protected String doInBackground(String... strings) {
             sshConnection.connect();
-            sshConnection.playCommand(strings[0], strings[1]);
+            sshConnection.playCommand(strings[0]);
             return sshConnection.getBaos();
         }
 

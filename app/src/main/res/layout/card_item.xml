@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ps_gta" />
+                android:src="@drawable/snes_powerrangers" />
 
             <ProgressBar
                 android:id="@+id/pb_loading"

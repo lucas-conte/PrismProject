@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Toast;
 
+import com.prism.prismproject.constant.Constant;
 import com.prism.prismproject.object.SuperNintendo;
 
 public class SuperNintendoListAdapter extends DashboardListAdapter{
@@ -27,9 +28,9 @@ public class SuperNintendoListAdapter extends DashboardListAdapter{
             public void onClick(View v) {
                 Toast.makeText(context, superNintendo.getConsole().getJogos().get(i).getNome() + " clicado", Toast.LENGTH_SHORT).show();
 
-                SendSSHCommands ssh = new SendSSHCommands();
+                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_SUPERNINTENDO);
                 ssh.setLoading(holder.loading);
-                ssh.execute("n64", "mario64.z64");
+                ssh.execute("mario64.z64");
             }
         });
     }
