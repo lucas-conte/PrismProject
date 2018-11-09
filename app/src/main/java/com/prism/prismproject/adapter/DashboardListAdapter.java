@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.prism.prismproject.R;
@@ -45,6 +46,7 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         public ImageView gameImage;
         public TextView gameName;
         public TextView consoleName;
+        public ProgressBar loading;
 
         public DashboardListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -52,23 +54,36 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
             gameImage = itemView.findViewById(R.id.iv_game);
             gameName = itemView.findViewById(R.id.tv_gamename);
             consoleName = itemView.findViewById(R.id.tv_consolename);
+            loading = itemView.findViewById(R.id.pb_loading);
         }
     }
 
     public class SendSSHCommands extends AsyncTask<String, Void, String>{
         SSHConnection sshConnection = new SSHConnection();
+        ProgressBar loading;
+
+        public void setLoading(ProgressBar loading){
+            this.loading = loading;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loading.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected String doInBackground(String... strings) {
             sshConnection.connect();
             sshConnection.playCommand(strings[0], strings[1]);
-            return null;
+            return sshConnection.getBaos();
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             sshConnection.disconnect();
+            loading.setVisibility(View.GONE);
         }
     }
 }

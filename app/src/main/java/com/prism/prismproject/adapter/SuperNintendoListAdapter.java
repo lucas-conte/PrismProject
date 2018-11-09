@@ -17,7 +17,7 @@ public class SuperNintendoListAdapter extends DashboardListAdapter{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DashboardListViewHolder holder, final int i) {
+    public void onBindViewHolder(@NonNull final DashboardListViewHolder holder, final int i) {
         holder.consoleName.setText(superNintendo.getConsole().getNome());
         holder.gameImage.setImageDrawable(context.getDrawable(superNintendo.getConsole().getJogos().get(i).getDrawableId()));
         holder.gameName.setText(superNintendo.getConsole().getJogos().get(i).getNome());
@@ -28,7 +28,8 @@ public class SuperNintendoListAdapter extends DashboardListAdapter{
                 Toast.makeText(context, superNintendo.getConsole().getJogos().get(i).getNome() + " clicado", Toast.LENGTH_SHORT).show();
 
                 SendSSHCommands ssh = new SendSSHCommands();
-                ssh.doInBackground("n64", "mario64.z64");
+                ssh.setLoading(holder.loading);
+                ssh.execute("n64", "mario64.z64");
             }
         });
     }
