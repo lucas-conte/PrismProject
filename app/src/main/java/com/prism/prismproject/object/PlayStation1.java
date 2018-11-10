@@ -9,11 +9,11 @@ public class PlayStation1 {
 
     public PlayStation1(){
         ArrayList<Jogo> lista = new ArrayList<>();
-        Jogo jogo = new Jogo("Jackie Chan Stuntmaster", R.drawable.ps1_jackiechan);
+        Jogo jogo = new Jogo("Jackie Chan Stuntmaster", R.drawable.ps1_jackiechan, "jackiechan.cue");
         lista.add(jogo);
-        jogo = new Jogo("Chrono Cross", R.drawable.ps1_chronocross);
+        jogo = new Jogo("Chrono Cross", R.drawable.ps1_chronocross, "ChronoCross1.cue");
         lista.add(jogo);
-        jogo = new Jogo("Grand Theft Auto", R.drawable.ps1_grandtheftauto);
+        jogo = new Jogo("Grand Theft Auto", R.drawable.ps1_grandtheftauto, "gta.cue");
         lista.add(jogo);
 
         playStation = new Console("PlayStation 1", lista);

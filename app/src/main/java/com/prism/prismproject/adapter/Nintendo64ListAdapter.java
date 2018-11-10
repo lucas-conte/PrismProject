@@ -30,7 +30,7 @@ public class Nintendo64ListAdapter extends DashboardListAdapter{
 
                 SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_NINTENDO_64);
                 ssh.setLoading(holder.loading);
-                ssh.execute("mario64.z64");
+                ssh.execute(nintendo64.getConsole().getJogos().get(i).getArchive());
             }
         });
     }

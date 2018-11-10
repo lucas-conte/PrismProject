@@ -30,7 +30,7 @@ public class PlayStationListAdapter extends DashboardListAdapter {
 
                 SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_PS1);
                 ssh.setLoading(holder.loading);
-                ssh.execute("mario64.z64");
+                ssh.execute(playStation.getConsole().getJogos().get(i).getArchive());
             }
         });
     }

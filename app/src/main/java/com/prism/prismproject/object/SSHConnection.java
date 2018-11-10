@@ -10,7 +10,6 @@ import com.prism.prismproject.constant.Constant;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 
 public class SSHConnection {
     private static final String host = "192.168.0.121";
@@ -38,6 +37,8 @@ public class SSHConnection {
             command = "/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so --config /opt/retropie/configs/psx/retroarch.cfg /home/pi/RetroPie/roms/psx/%s --appendconfig /dev/shn/retroarch.cfg";
         }else if (idConsole == Constant.PAGE_NINTENDO_64){
             command = "/opt/retropie/emulators/mupen64plus/bin/mupen64plus.sh AUTO /home/pi/RetroPie/roms/n64/%s";
+        }else if (idConsole == Constant.STOP){
+            command = "killall -9 %s";
         }
     }
 

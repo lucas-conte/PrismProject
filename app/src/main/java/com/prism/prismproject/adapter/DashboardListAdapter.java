@@ -8,11 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.prism.prismproject.R;
+import com.prism.prismproject.constant.Constant;
 import com.prism.prismproject.object.SSHConnection;
 
 import java.net.URL;
@@ -58,12 +60,14 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         }
     }
 
-    public class SendSSHCommands extends AsyncTask<String, Void, String>{
+    public static class SendSSHCommands extends AsyncTask<String, Void, String>{
         SSHConnection sshConnection;
         ProgressBar loading;
+        int id;
 
         public SendSSHCommands(int idConsole){
             sshConnection = new SSHConnection(idConsole);
+            id = idConsole;
         }
 
         public void setLoading(ProgressBar loading){
@@ -73,7 +77,8 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            loading.setVisibility(View.VISIBLE);
+            if (id != Constant.STOP)
+                loading.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -87,7 +92,8 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             sshConnection.disconnect();
-            loading.setVisibility(View.GONE);
+            if (id != Constant.STOP)
+                loading.setVisibility(View.GONE);
         }
     }
 }

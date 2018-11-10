@@ -30,7 +30,7 @@ public class SuperNintendoListAdapter extends DashboardListAdapter{
 
                 SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_SUPERNINTENDO);
                 ssh.setLoading(holder.loading);
-                ssh.execute("mario64.z64");
+                ssh.execute(superNintendo.getConsole().getJogos().get(i).getArchive());
             }
         });
     }

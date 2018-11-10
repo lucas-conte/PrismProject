@@ -9,11 +9,11 @@ public class SuperNintendo{
 
     public SuperNintendo(){
         ArrayList<Jogo> lista = new ArrayList<>();
-        Jogo jogo = new Jogo("Super Mario World", R.drawable.snes_supermarioworld);
+        Jogo jogo = new Jogo("Super Mario World", R.drawable.snes_supermarioworld, "supermario.smc");
         lista.add(jogo);
-        jogo = new Jogo("Super Mario Kart", R.drawable.snes_supermariokart);
+        jogo = new Jogo("Super Mario Kart", R.drawable.snes_supermariokart, "mariokart.smc");
         lista.add(jogo);
-        jogo = new Jogo("Mighty Morphin Power Rangers", R.drawable.snes_powerrangers);
+        jogo = new Jogo("Mighty Morphin Power Rangers", R.drawable.snes_powerrangers, "powerrangers.smc");
         lista.add(jogo);
 
         superNintendo = new Console("Super Nintendo", lista);

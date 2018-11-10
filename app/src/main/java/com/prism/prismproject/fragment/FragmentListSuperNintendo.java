@@ -2,9 +2,11 @@ package com.prism.prismproject.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.prism.prismproject.adapter.DashboardListAdapter;
 import com.prism.prismproject.adapter.SuperNintendoListAdapter;
+import com.prism.prismproject.constant.Constant;
 import com.prism.prismproject.object.SuperNintendo;
 
 public class FragmentListSuperNintendo extends FragmentListDashboard{
@@ -23,5 +25,13 @@ public class FragmentListSuperNintendo extends FragmentListDashboard{
 
         DashboardListAdapter adapter = new SuperNintendoListAdapter(superNintendo, getContext());
         recyclerView.setAdapter(adapter);
+
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DashboardListAdapter.SendSSHCommands ssh = new DashboardListAdapter.SendSSHCommands(Constant.STOP);
+                ssh.execute("retroarch");
+            }
+        });
     }
 }
