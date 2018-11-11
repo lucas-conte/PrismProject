@@ -28,7 +28,7 @@ public class Nintendo64ListAdapter extends DashboardListAdapter{
             public void onClick(View v) {
                 Toast.makeText(context, nintendo64.getConsole().getJogos().get(i).getNome() + " clicado", Toast.LENGTH_SHORT).show();
 
-                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_NINTENDO_64);
+                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_NINTENDO_64, context);
                 ssh.setLoading(holder.loading);
                 ssh.execute(nintendo64.getConsole().getJogos().get(i).getArchive());
             }

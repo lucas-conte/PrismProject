@@ -32,7 +32,7 @@ public class FragmentListPS1 extends FragmentListDashboard{
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DashboardListAdapter.SendSSHCommands ssh = new DashboardListAdapter.SendSSHCommands(Constant.STOP);
+                DashboardListAdapter.SendSSHCommands ssh = new DashboardListAdapter.SendSSHCommands(Constant.STOP, getContext());
                 ssh.execute("retroarch");
             }
         });

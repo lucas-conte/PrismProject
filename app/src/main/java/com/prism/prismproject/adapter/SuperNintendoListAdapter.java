@@ -28,7 +28,7 @@ public class SuperNintendoListAdapter extends DashboardListAdapter{
             public void onClick(View v) {
                 Toast.makeText(context, superNintendo.getConsole().getJogos().get(i).getNome() + " clicado", Toast.LENGTH_SHORT).show();
 
-                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_SUPERNINTENDO);
+                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_SUPERNINTENDO,  context);
                 ssh.setLoading(holder.loading);
                 ssh.execute(superNintendo.getConsole().getJogos().get(i).getArchive());
             }

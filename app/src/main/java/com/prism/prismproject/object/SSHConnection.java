@@ -1,5 +1,8 @@
 package com.prism.prismproject.object;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.jcraft.jsch.ChannelExec;
@@ -12,7 +15,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 public class SSHConnection {
-    private static final String host = "192.168.0.121";
+    private String host;
     private static final String user = "pi";
     private static final String password = "raspberry";
     private static final int port = 22;
@@ -26,10 +29,13 @@ public class SSHConnection {
 
     private String command;
 
-    public SSHConnection(int idConsole){
+    public SSHConnection(int idConsole, Context context){
         jSch = new JSch();
         Baos = new ByteArrayOutputStream();
         Bais = new ByteArrayInputStream(new byte[2000]);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        host = preferences.getString(Constant.IP_ADDRESS, "192.168.43.23");
 
         if (idConsole == Constant.PAGE_SUPERNINTENDO){
             command = "/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-snes9x2010/snes9x2010_libretro.so --config /opt/retropie/configs/snes/retroarch.cfg /home/pi/RetroPie/roms/snes/%s --appendconfig /dev/shn/retroarch.cfg";

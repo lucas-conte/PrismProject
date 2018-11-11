@@ -65,8 +65,8 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         ProgressBar loading;
         int id;
 
-        public SendSSHCommands(int idConsole){
-            sshConnection = new SSHConnection(idConsole);
+        public SendSSHCommands(int idConsole, Context context){
+            sshConnection = new SSHConnection(idConsole, context);
             id = idConsole;
         }
 

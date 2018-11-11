@@ -28,7 +28,7 @@ public class PlayStationListAdapter extends DashboardListAdapter {
             public void onClick(View v) {
                 Toast.makeText(context, playStation.getConsole().getJogos().get(i).getNome() + " clicado", Toast.LENGTH_SHORT).show();
 
-                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_PS1);
+                SendSSHCommands ssh = new SendSSHCommands(Constant.PAGE_PS1, context);
                 ssh.setLoading(holder.loading);
                 ssh.execute(playStation.getConsole().getJogos().get(i).getArchive());
             }
